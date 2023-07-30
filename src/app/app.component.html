@@ -1,0 +1,135 @@
+
+<div id="style">
+  <input type="checkbox" id="darkmode-toggle"/>
+		<label #styleToggle for="darkmode-toggle">
+			<svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
+
+			<rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)" width="40.001" height="16"/>
+			<rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001" height="16"/>
+			<rect x="46.947" y="315.048" transform="matrix(0.9239 -0.3827 0.3827 0.9239 -118.531 50.2116)" width="40.001" height="16"/>
+			
+				<rect x="164.966" y="409.112" transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)" width="16" height="39.999"/>
+			
+				<rect x="303.031" y="421.036" transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)" width="40.001" height="16"/>
+			
+				<rect x="409.088" y="315.018" transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)" width="40.001" height="16"/>
+			
+				<rect x="409.054" y="165.011" transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)" width="40.001" height="16"/>
+			<rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)" width="16" height="39.999"/>
+			<path d="M248,88c-88.224,0-160,71.776-160,160s71.776,160,160,160s160-71.776,160-160S336.224,88,248,88z M248,392
+				c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,392,248,392z"/>
+			<rect x="240" width="16" height="72"/>
+			<rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)" width="71.999" height="16"/>
+			<rect y="240" width="72" height="16"/>
+			
+				<rect x="90.091" y="361.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16" height="71.999"/>
+			<rect x="240" y="424" width="16" height="72"/>
+			
+				<rect x="361.881" y="389.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)" width="71.999" height="16"/>
+			<rect x="424" y="240" width="72" height="16"/>
+			<rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)" width="16" height="71.999"/>
+	 </svg>
+     <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
+     <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
+       c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
+       c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
+       C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
+       c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
+       c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
+		</label>
+</div>
+
+<nav>
+  <div #current class="current">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div (click)="view.next(1)" class="list active">O nas</div>
+  <div (click)="view.next(2)" class="list">Gdzie działamy</div>
+  <div (click)="view.next(3)" class="list">Kontakt</div>
+</nav>
+
+
+
+<main>
+  <div #aboutUs id="general_data" class="view 1">
+
+    <div class="service">
+      
+      <img src="../assets/vending.jpg" alt="" class="info vending show_img">
+      <img src="../assets/atm.jpg" alt="" class="info atm show_img">
+      <img src="../assets/wifi.png" alt="" class="info wifi show_img" style="background: white;">
+
+    </div>
+
+    <div id="info" #info>
+      Jesteśmy firmą specjalizującą się w profesjonalnym serwisie terenowym na terenie Dolnego Śląska. Zapewniamy niezawodną obsługę i wsparcie w zakresie  usług  naprawy i konserwacji:
+      <br>
+
+      <span class="repair vending">- maszyn  vendingowych</span><br>
+      <span class="repair atm">- ATM</span><br>
+      <span class="repair wifi">- serwisu i utrzymanie łączności internetowej</span>
+
+      <br><br>
+
+      W zakresie maszyn vendingowych, posiadamy wszechstronne doświadczenie w dziedzinie ich konserwacji i naprawy. Niezależnie od typu maszyny vendingowej, jesteśmy gotowi dostarczyć kompleksową opiekę techniczną, aby zapewnić ich nieprzerwane działanie i optymalne funkcjonowanie.
+      Dodatkowo, posiadamy specjalistyczną wiedzę i umiejętności w zakresie obsługi ATM. Zapewniamy skuteczne rozwiązywanie wszelkich problemów, aby  transakcje finansowe przebiegały sprawnie i bezpiecznie.
+      <br><br>
+      Jesteśmy również specjalistami w serwisie i utrzymaniu łączności internetowej. Wiemy, jak ważne jest, aby  połączenia internetowe działały niezawodnie i zapewniały wysoką jakość. Dlatego oferujemy kompleksowe wsparcie w zakresie diagnozowania, naprawy i optymalizacji sieci, aby zapewnić stabilne połączenie internetowe.
+      Posiadamy także bogate doświadczenie w obsłudze kas fiskalnych, terminali płatniczych, programów sprzedażowych oraz drukarek etykiet. Bez względu na Twoje potrzeby, możesz być pewien, że nasi wysoko wykwalifikowani technicy zapewnią kompleksowe wsparcie i profesjonalne rozwiązania.
+      <br><br>
+      Zapewniamy szybką realizację zgłaszanych problemów i oferowujemy terminowe wykonanie usług serwisowych na terenie Dolnego Śląska. Nasze zaangażowanie w doskonałość obsługi klienta jest niezachwiane, a nasza wiedza techniczna jest stale aktualizowana.
+      Zapraszamy do nawiązania współpracy.
+    </div>
+  </div>
+
+  <div #workArea id="work_area" class="view 2">
+
+    
+
+    <div class="describe">
+      <div id="title">
+        Obszar na którym pracujemy
+      </div>
+      <div class="voievodship" style="width: fit-content; position: relative;">
+
+        <div class="city" data-city="Wrocław">
+          <mat-icon class="icon-Wrocław">location_on</mat-icon> <p></p> <img src="../assets/cities/wroclaw.jpg">
+        </div>
+        <div class="city" data-city="Jelenia Góra">
+          <mat-icon class="icon-Jelenia Góra">location_on</mat-icon> <p></p> <img src="../assets/cities/jelenia_góra.jpg">
+        </div>
+        <div class="city" data-city="Lubin"> 
+          <mat-icon class="icon-Lubin">location_on</mat-icon><p></p> <img src="../assets/cities/lubin.jpeg">
+        </div>
+        <div class="city" data-city="Głogów"> 
+          <mat-icon class="icon-Głogów">location_on</mat-icon><p></p> <img src="../assets/cities/głogów.jpeg">
+        </div>
+        <div class="city" data-city="Zgorzelec"> 
+          <mat-icon class="icon-Zgorzelec">location_on</mat-icon><p></p> <img src="../assets/cities/zgorzelec.jpg">
+        </div>
+        <div class="city" data-city="Legnica"> 
+          <mat-icon class="icon-Legnica">location_on</mat-icon><p></p> <img src="../assets/cities/legnica.jpg">
+        </div>
+
+        <img id="lower_silesia" src="../assets/lower_silesia.png">
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div #contact id="contact" class="view 3">
+
+    <form class="form" #emailForm="ngForm">
+      <h2>SKONTAKTUJ SIĘ Z NAMI</h2>
+      <p type="Email:"><input name="email" ngModel type="email" placeholder="Tu wpisz adres email"></p>
+      <p type="Wiadomość:"><textarea name="message" ngModel class="message" placeholder="Twoja wiadomość..."></textarea></p>
+      <button (click)="sendEmail(emailForm)">Wyślij wiadomość</button>
+    </form>
+
+
+  </div>
+</main>
