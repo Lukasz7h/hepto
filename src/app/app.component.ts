@@ -52,13 +52,6 @@ export class AppComponent implements AfterViewInit, OnInit
   ngOnInit(): void
   {
     this.checkCookie();
-
-    window.onbeforeunload = () => {
-      window.localStorage.setItem("viewNumber", this.viewNumber.toString());
-    };
-
-    this.viewNumber = Number(window.localStorage.getItem("viewNumber")) | 0;
-
     const thatElements: HTMLElement | any = document.querySelectorAll('.list');
     
     Array.from(thatElements)
