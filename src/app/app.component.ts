@@ -45,7 +45,7 @@ export class AppComponent implements AfterViewInit, OnInit
 
   checkCookie()
   {
-    this.httpClient.get("http://localhost:3000/cookie", {withCredentials: true})
+    this.httpClient.get("https://companyapi-production.up.railway.app/cookie", {withCredentials: true})
     .subscribe((e) => {});
   }
 
@@ -221,7 +221,7 @@ export class AppComponent implements AfterViewInit, OnInit
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if(!form.value.email.match(mailformat) && form.value.message.length < 7) return;
 
-    this.httpClient.post("http://localhost:3000/email", form.value)
+    this.httpClient.post("https://companyapi-production.up.railway.app/email", form.value)
     .subscribe((e) => {
       
     });
