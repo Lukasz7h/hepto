@@ -104,9 +104,24 @@ export class AppComponent implements AfterViewInit, OnInit
     function scrollTo()
     {
       if(that.canPerform) return;
+
       elements[that.viewNumber - 1].nativeElement.scrollIntoView({behavior: "smooth", block: "end"});
+      const top: number = that.viewNumber * window.innerHeight - window.innerHeight;
+
+      if( !(window.scrollY + 37 > top) || !(window.scrollY - 37 < top)) return;
+
+      setTimeout(() => {
+        that.canPerform = true;
+        document.removeEventListener("scroll", scrollTo)
+
+      that.listener();
+      }, 170);
+      
     };
-     
+
+    let rateOfChanges: number = 1;
+    let time: any; 
+
     this.view
     .subscribe(
       (e: number) => {
@@ -127,15 +142,20 @@ export class AppComponent implements AfterViewInit, OnInit
         navList.item(e-1)?.classList.add("active");
         this.currentEle.nativeElement.style.left = this.navLeft[this.viewNumber - 1];
 
-        scrollTo();
-        document.addEventListener("scroll", scrollTo);
+        if(time) clearTimeout(time);
 
-        setTimeout(() => {
-          that.canPerform = true;
-          document.removeEventListener("scroll", scrollTo)
+        time = setTimeout(() => {
 
-          that.listener();
-        }, 850);
+          if(this.viewNumber - 2 == rateOfChanges) this.viewNumber-- ;
+          if(this.viewNumber + 2 == rateOfChanges) this.viewNumber++ ;
+
+          rateOfChanges = this.viewNumber;
+
+          scrollTo();
+          document.addEventListener("scroll", scrollTo);
+        }, 25);
+        
+        
       }
     );
   };

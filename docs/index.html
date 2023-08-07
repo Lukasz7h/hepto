@@ -79,18 +79,22 @@
           this.style = COLORS[~~range(0, 5)];
           this.rgb = `rgba(${this.style[0]},${this.style[1]},${this.style[2]}`;
           this.r = ~~range(2, 4);
+          
           this.r2 = 2 * this.r;
           this.replace();
         }
     
         replace() {
+
           this.opacity = 0;
           this.dop = 0.0001 * range(1, 4);
           this.x = range(-this.r2, w - this.r2);
           this.y = range(-20, h - this.r2);
+
           this.xmax = w - this.r;
           this.ymax = h - this.r;
           this.vx = range(0, 2) + 8 * xpos - 5;
+
           return this.vy = 0.7 * this.r + range(-1, 1);
         }
     
