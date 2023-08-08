@@ -141,15 +141,15 @@ export class AppComponent implements AfterViewInit, OnInit
 
         time = setTimeout(() => {
 
-          if(this.viewNumber - 2 == rateOfChanges && data.flag) this.viewNumber-- ;
-          if(this.viewNumber + 2 == rateOfChanges && data.flag) this.viewNumber++ ;
+          if(this.viewNumber - 2 == rateOfChanges && data.flag) this.viewNumber--;
+          if(this.viewNumber + 2 == rateOfChanges && data.flag) this.viewNumber++;
 
           Array.from(navList)
           .forEach((e) => {
             e.classList.remove("active");
           });
   
-          navList.item(data.e-1)?.classList.add("active");
+          navList.item(this.viewNumber-1)?.classList.add("active");
           this.currentEle.nativeElement.style.left = this.navLeft[this.viewNumber - 1];
 
           rateOfChanges = this.viewNumber;
@@ -161,9 +161,7 @@ export class AppComponent implements AfterViewInit, OnInit
           };
 
           document.addEventListener("scroll", scrollTo);
-
-        }, 65);
-        
+        }, 85);
         
       }
     );
@@ -346,8 +344,6 @@ export class AppComponent implements AfterViewInit, OnInit
 
       counter++;
       if(counter < 3) return;
-
-      document.removeEventListener("scroll", call);
 
       if(diff && diff < 10)
       {
