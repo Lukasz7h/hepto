@@ -744,6 +744,34 @@ nav{
     }
 }
 
+@media (max-width: 900px) and (max-height: 480px)
+{
+    .view{
+        padding: 0;
+
+        .service{
+            padding: 175px 60px 0px 45px;
+
+            img{
+                width: 95px;
+                margin-bottom: 32px;
+            }
+        }
+
+        #info{
+            margin-top: 105px;
+        }
+    }
+
+    #work_area #title{
+        font-size: 38px;
+    }
+
+    #contact{
+        margin-top: 450px;
+    }
+}
+
 @keyframes gleam
 {
     0%{

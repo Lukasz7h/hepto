@@ -4,7 +4,6 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { NgForm } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -114,7 +113,7 @@ export class AppComponent implements AfterViewInit, OnInit
         that.canPerform = true;
         document.removeEventListener("scroll", scrollTo)
 
-      that.listener();
+        that.listener();
       }, 170);
       
     };
@@ -150,10 +149,15 @@ export class AppComponent implements AfterViewInit, OnInit
           if(this.viewNumber + 2 == rateOfChanges) this.viewNumber++ ;
 
           rateOfChanges = this.viewNumber;
-
           scrollTo();
+
+          if(window.innerWidth < 900) {
+            that.canPerform = true;
+            return;
+          };
           document.addEventListener("scroll", scrollTo);
-        }, 25);
+
+        }, 35);
         
         
       }
@@ -319,25 +323,36 @@ export class AppComponent implements AfterViewInit, OnInit
 
   listener()
   {
+    if(window.innerWidth < 900) return;
+
     const that = this;
     let counter = 0;
+
+    let last: number;
+    let diff: number;
 
     function call()
     {
       var st = document.documentElement.scrollTop || document.body.scrollTop;
       if(!counter) that.lastScrollTop = st;
 
+      if(last) diff = new Date().getMilliseconds() - last;
+      last = new Date().getMilliseconds();
+
       counter++;
       if(counter < 3) return;
 
       document.removeEventListener("scroll", call);
 
-      if(st > that.lastScrollTop)
+      if(diff && diff < 10)
       {
-        that.view.next(that.viewNumber+1);
-      }
-      else if (st < that.lastScrollTop) {
-        that.view.next(that.viewNumber-1);
+        if(st > that.lastScrollTop)
+        {
+          that.view.next(that.viewNumber+1);
+        }
+        else if (st < that.lastScrollTop) {
+          that.view.next(that.viewNumber-1);
+        }
       }
       
     };
