@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit, OnInit
   window.innerWidth > 550?
     (window.innerWidth > 720?
       (window.innerWidth < 900 && window.innerHeight < 500)? ["12vw", "37vw", "63vw"]:
-      (window.innerWidth < 1150 && window.innerHeight < 500)? ["9vw", "37vw", "63vw"]:["165px", "376px", "592px"]:
+      (window.innerWidth < 1150 && window.innerHeight < 500)? ["11vw", "37vw", "60vw"]:["165px", "376px", "592px"]:
   ['8vw', '36vw', '66vw']):["3vw", "35vw", "69vw"];
 
   lastScrollTop: number = 0;
