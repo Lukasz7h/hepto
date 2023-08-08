@@ -17,15 +17,19 @@ export class AppComponent implements AfterViewInit, OnInit
   ){}
 
   title = 'company';
-  view: Subject<number> = new Subject<number>();
+  view: Subject<{e: number, flag: boolean}> = new Subject<{e: number, flag: boolean}>();
 
   viewNumber: number = 1;
   canPerform: boolean = true;
 
   currentElement: HTMLImageElement | undefined;
-  navLeft: string[] = window.innerWidth > 550?
-  (window.innerWidth > 720? ["165px", "376px", "592px"] : ['8vw', '36vw', '66vw']):
-  ["3vw", "35vw", "69vw"];
+
+  navLeft: string[] =
+  window.innerWidth > 550?
+    (window.innerWidth > 720?
+      (window.innerWidth < 900 && window.innerHeight < 500)? ["12vw", "37vw", "63vw"]:
+      (window.innerWidth < 1150 && window.innerHeight < 500)? ["9vw", "37vw", "63vw"]:["165px", "376px", "592px"]:
+  ['8vw', '36vw', '66vw']):["3vw", "35vw", "69vw"];
 
   lastScrollTop: number = 0;
   st: any;
@@ -123,38 +127,39 @@ export class AppComponent implements AfterViewInit, OnInit
 
     this.view
     .subscribe(
-      (e: number) => {
+      (data: {e: number, flag: boolean}) => {
 
         if(!that.canPerform) return;
 
-        if(e < 1) e = 1;
-        if(e > 3) e = 3;
+        if(data.e < 1) data.e = 1;
+        if(data.e > 3) data.e = 3;
 
-        this.viewNumber = e;
+        this.viewNumber = data.e;
         this.canPerform = false;
-
-        Array.from(navList)
-        .forEach((e) => {
-          e.classList.remove("active");
-        });
-
-        navList.item(e-1)?.classList.add("active");
-        this.currentEle.nativeElement.style.left = this.navLeft[this.viewNumber - 1];
 
         if(time) clearTimeout(time);
 
         time = setTimeout(() => {
 
-          if(this.viewNumber - 2 == rateOfChanges) this.viewNumber-- ;
-          if(this.viewNumber + 2 == rateOfChanges) this.viewNumber++ ;
+          if(this.viewNumber - 2 == rateOfChanges && data.flag) this.viewNumber-- ;
+          if(this.viewNumber + 2 == rateOfChanges && data.flag) this.viewNumber++ ;
+
+          Array.from(navList)
+          .forEach((e) => {
+            e.classList.remove("active");
+          });
+  
+          navList.item(data.e-1)?.classList.add("active");
+          this.currentEle.nativeElement.style.left = this.navLeft[this.viewNumber - 1];
 
           rateOfChanges = this.viewNumber;
           scrollTo();
 
-          if(window.innerWidth < 900) {
+          if(window.innerWidth < 1150) {
             that.canPerform = true;
             return;
           };
+
           document.addEventListener("scroll", scrollTo);
 
         }, 35);
@@ -323,7 +328,7 @@ export class AppComponent implements AfterViewInit, OnInit
 
   listener()
   {
-    if(window.innerWidth < 900) return;
+    if(window.innerWidth < 1150) return;
 
     const that = this;
     let counter = 0;
@@ -348,10 +353,10 @@ export class AppComponent implements AfterViewInit, OnInit
       {
         if(st > that.lastScrollTop)
         {
-          that.view.next(that.viewNumber+1);
+          that.view.next({e: that.viewNumber+1, flag: true});
         }
         else if (st < that.lastScrollTop) {
-          that.view.next(that.viewNumber-1);
+          that.view.next({e: that.viewNumber-1, flag: true});
         }
       }
       

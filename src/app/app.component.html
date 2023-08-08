@@ -46,9 +46,9 @@
     <div class="left"></div>
     <div class="right"></div>
   </div>
-  <div (click)="view.next(1)" class="list active">O nas</div>
-  <div (click)="view.next(2)" class="list">Gdzie działamy</div>
-  <div (click)="view.next(3)" class="list">Kontakt</div>
+  <div (click)="view.next({e:1, flag: false})" class="list active">O nas</div>
+  <div (click)="view.next({e:2, flag: false})" class="list">Gdzie działamy</div>
+  <div (click)="view.next({e:3, flag: false})" class="list">Kontakt</div>
 </nav>
 
 
@@ -65,6 +65,7 @@
     </div>
 
     <div id="info" #info>
+      <h3>Hepto Sp. z o.o.</h3>
       Jesteśmy firmą specjalizującą się w profesjonalnym serwisie terenowym na terenie Dolnego Śląska. Zapewniamy niezawodną obsługę i wsparcie w zakresie  usług  naprawy i konserwacji:
       <br>
 

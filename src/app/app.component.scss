@@ -279,7 +279,8 @@ nav{
 
     #info{
         flex-basis: 65%;
-        height: 90%;
+        height: 105%;
+        overflow-y: scroll;
 
         font-family: 'Roboto', sans-serif;
         line-height: 31px;
@@ -288,6 +289,12 @@ nav{
         position: relative;
 
         z-index: 2;
+
+        h3{
+            font-family: 'Handjet', cursive;
+            font-size: 46px;
+            margin-bottom: 25px;
+        }
 
         span{
             &:nth-of-type(1)
@@ -744,8 +751,15 @@ nav{
     }
 }
 
-@media (max-width: 900px) and (max-height: 480px)
+@media (max-width: 1150px) and (max-height: 680px)
 {
+    nav{
+        .current{
+            width: 150px;
+            position: absolute;
+        }
+    }
+
     .view{
         padding: 0;
 
