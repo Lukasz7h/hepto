@@ -162,7 +162,7 @@ export class AppComponent implements AfterViewInit, OnInit
 
           document.addEventListener("scroll", scrollTo);
 
-        }, 35);
+        }, 65);
         
         
       }
