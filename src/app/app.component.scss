@@ -226,13 +226,23 @@ nav{
     box-sizing: border-box;
     display: flex;
 
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    background-color: white;
+
+    &:nth-of-type(2), &:nth-of-type(3){
+        display: none;
+    }
+
     .service{
         flex-basis: auto;
         display: flex;
         flex-direction: column;
 
         padding-right: 180px;
-        height: 106%;
+        height: max-content;
 
         overflow: hidden;
         padding: 75px 150px 0px 75px;
@@ -469,7 +479,6 @@ nav{
 }
 
 #contact{
-    position: relative;
     font-family: 'Roboto', sans-serif;
 
     h3{

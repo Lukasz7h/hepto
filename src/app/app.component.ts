@@ -17,7 +17,7 @@ export class AppComponent implements AfterViewInit, OnInit
   ){}
 
   title = 'company';
-  view: Subject<{e: number, flag: boolean}> = new Subject<{e: number, flag: boolean}>();
+  view: Subject<number> = new Subject<number>();
 
   viewNumber: number = 1;
   canPerform: boolean = true;
@@ -127,41 +127,23 @@ export class AppComponent implements AfterViewInit, OnInit
 
     this.view
     .subscribe(
-      (data: {e: number, flag: boolean}) => {
+      (e: number) => {
 
-        if(!that.canPerform) return;
+        document.querySelectorAll(".list")
+        .forEach((el) => {
+          el.classList.remove("active");
+        })
 
-        if(data.e < 1) data.e = 1;
-        if(data.e > 3) data.e = 3;
-
-        this.viewNumber = data.e;
-        this.canPerform = false;
-
-        if(time) clearTimeout(time);
-
-        time = setTimeout(() => {
-
-          if(this.viewNumber - 2 == rateOfChanges && data.flag) this.viewNumber--;
-          if(this.viewNumber + 2 == rateOfChanges && data.flag) this.viewNumber++;
-
-          Array.from(navList)
-          .forEach((e) => {
-            e.classList.remove("active");
-          });
-  
-          navList.item(this.viewNumber-1)?.classList.add("active");
-          this.currentEle.nativeElement.style.left = this.navLeft[this.viewNumber - 1];
-
-          rateOfChanges = this.viewNumber;
-          scrollTo();
-
-          if(window.innerWidth < 1150) {
-            that.canPerform = true;
-            return;
-          };
-
-          document.addEventListener("scroll", scrollTo);
-        }, 85);
+        document.querySelectorAll(".view")
+        .forEach((el: any, id) =>{
+          id + 1 == e? 
+          [
+            el.style.display = "flex",
+            document.querySelector(".current")['style'].left = `${that.navLeft[e-1]}`,
+            document.getElementsByClassName("list").item(e-1).classList.add("active")
+          ]:
+          el.style.display = "none";
+        })
         
       }
     );
@@ -319,46 +301,8 @@ export class AppComponent implements AfterViewInit, OnInit
     this.listenerCities();
 
     this.listenViewChanges();
-    this.listener();
 
     this.st = window.pageYOffset || document.documentElement.scrollTop;
-  }
-
-  listener()
-  {
-    if(window.innerWidth < 1150) return;
-
-    const that = this;
-    let counter = 0;
-
-    let last: number;
-    let diff: number;
-
-    function call()
-    {
-      var st = document.documentElement.scrollTop || document.body.scrollTop;
-      if(!counter) that.lastScrollTop = st;
-
-      if(last) diff = new Date().getMilliseconds() - last;
-      last = new Date().getMilliseconds();
-
-      counter++;
-      if(counter < 3) return;
-
-      if(diff && diff < 10)
-      {
-        if(st > that.lastScrollTop)
-        {
-          that.view.next({e: that.viewNumber+1, flag: true});
-        }
-        else if (st < that.lastScrollTop) {
-          that.view.next({e: that.viewNumber-1, flag: true});
-        }
-      }
-      
-    };
-    
-    document.addEventListener("scroll", call);
   }
 
 }
