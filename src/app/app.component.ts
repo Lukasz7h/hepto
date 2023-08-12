@@ -254,7 +254,11 @@ export class AppComponent implements AfterViewInit, OnInit
 
       function night()
       {
-        body.style.backgroundColor = "#303030";
+        document.querySelectorAll(".view")
+        .forEach((el: any) => {
+          el.style.backgroundColor = "#303030";
+        });
+
         info.style.color = "#fff";
 
         nav.classList.add("night");
@@ -268,7 +272,10 @@ export class AppComponent implements AfterViewInit, OnInit
       
       function day()
       {
-        body.style.backgroundColor = "#fff";
+        document.querySelectorAll(".view")
+        .forEach((el: any) => {
+          el.style.backgroundColor = "#fff";
+        });
         info.style.color = "black";
 
         nav.classList.remove("night");

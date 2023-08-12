@@ -466,6 +466,8 @@ nav{
         text-align: center;
         flex-basis: auto;
         height: min-content;
+
+        z-index: 4;
         position: relative;
         margin: auto;
     }
@@ -508,6 +510,7 @@ nav{
         box-sizing: border-box;
         
         position: relative;
+        z-index: 4;
     }
 
     h2{
