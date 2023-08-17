@@ -55,6 +55,7 @@
 
 <main>
   <div #aboutUs id="general_data" class="view 1">
+    
 
     <div class="service">
       
@@ -66,23 +67,26 @@
 
     <div id="info" #info>
       <h3>Hepto Sp. z o.o.</h3>
-      Jesteśmy firmą specjalizującą się w profesjonalnym serwisie terenowym na terenie Dolnego Śląska. Zapewniamy niezawodną obsługę i wsparcie w zakresie  usług  naprawy i konserwacji:
-      <br>
+      <div>
+        Jesteśmy firmą specjalizującą się w profesjonalnym serwisie terenowym na terenie Dolnego Śląska. Zapewniamy niezawodną obsługę i wsparcie w zakresie  usług  naprawy i konserwacji:
+        <br>
 
-      <span class="repair vending">- maszyn  vendingowych</span><br>
-      <span class="repair atm">- ATM</span><br>
-      <span class="repair wifi">- serwisu i utrzymanie łączności internetowej</span>
+        <span class="repair vending">- maszyn  vendingowych</span><br>
+        <span class="repair atm">- ATM</span><br>
+        <span class="repair wifi">- serwisu i utrzymanie łączności internetowej</span>
 
-      <br><br>
+        <br><br>
 
-      W zakresie maszyn vendingowych, posiadamy wszechstronne doświadczenie w dziedzinie ich konserwacji i naprawy. Niezależnie od typu maszyny vendingowej, jesteśmy gotowi dostarczyć kompleksową opiekę techniczną, aby zapewnić ich nieprzerwane działanie i optymalne funkcjonowanie.
-      Dodatkowo, posiadamy specjalistyczną wiedzę i umiejętności w zakresie obsługi ATM. Zapewniamy skuteczne rozwiązywanie wszelkich problemów, aby  transakcje finansowe przebiegały sprawnie i bezpiecznie.
-      <br><br>
-      Jesteśmy również specjalistami w serwisie i utrzymaniu łączności internetowej. Wiemy, jak ważne jest, aby  połączenia internetowe działały niezawodnie i zapewniały wysoką jakość. Dlatego oferujemy kompleksowe wsparcie w zakresie diagnozowania, naprawy i optymalizacji sieci, aby zapewnić stabilne połączenie internetowe.
-      Posiadamy także bogate doświadczenie w obsłudze kas fiskalnych, terminali płatniczych, programów sprzedażowych oraz drukarek etykiet. Bez względu na Twoje potrzeby, możesz być pewien, że nasi wysoko wykwalifikowani technicy zapewnią kompleksowe wsparcie i profesjonalne rozwiązania.
-      <br><br>
-      Zapewniamy szybką realizację zgłaszanych problemów i oferowujemy terminowe wykonanie usług serwisowych na terenie Dolnego Śląska. Nasze zaangażowanie w doskonałość obsługi klienta jest niezachwiane, a nasza wiedza techniczna jest stale aktualizowana.
-      Zapraszamy do nawiązania współpracy.
+        W zakresie maszyn vendingowych, posiadamy wszechstronne doświadczenie w dziedzinie ich konserwacji i naprawy. Niezależnie od typu maszyny vendingowej, jesteśmy gotowi dostarczyć kompleksową opiekę techniczną, aby zapewnić ich nieprzerwane działanie i optymalne funkcjonowanie.
+        Dodatkowo, posiadamy specjalistyczną wiedzę i umiejętności w zakresie obsługi ATM. Zapewniamy skuteczne rozwiązywanie wszelkich problemów, aby  transakcje finansowe przebiegały sprawnie i bezpiecznie.
+        <br><br>
+        Jesteśmy również specjalistami w serwisie i utrzymaniu łączności internetowej. Wiemy, jak ważne jest, aby  połączenia internetowe działały niezawodnie i zapewniały wysoką jakość. Dlatego oferujemy kompleksowe wsparcie w zakresie diagnozowania, naprawy i optymalizacji sieci, aby zapewnić stabilne połączenie internetowe.
+        Posiadamy także bogate doświadczenie w obsłudze kas fiskalnych, terminali płatniczych, programów sprzedażowych oraz drukarek etykiet. Bez względu na Twoje potrzeby, możesz być pewien, że nasi wysoko wykwalifikowani technicy zapewnią kompleksowe wsparcie i profesjonalne rozwiązania.
+        <br><br>
+        Zapewniamy szybką realizację zgłaszanych problemów i oferowujemy terminowe wykonanie usług serwisowych na terenie Dolnego Śląska. Nasze zaangażowanie w doskonałość obsługi klienta jest niezachwiane, a nasza wiedza techniczna jest stale aktualizowana.
+        Zapraszamy do nawiązania współpracy.
+      </div>
+      
     </div>
   </div>
 
@@ -102,11 +106,14 @@
         <div class="city" data-city="Jelenia Góra">
           <mat-icon class="icon-Jelenia Góra">location_on</mat-icon> <p></p> <img src="../assets/cities/jelenia_góra.jpg">
         </div>
+        <div class="city" data-city="Wałbrzych">
+          <mat-icon class="icon-Wałbrzych">location_on</mat-icon> <p></p> <img src="../assets/cities/zgorzelec.jpg">
+        </div>
         <div class="city" data-city="Lubin"> 
           <mat-icon class="icon-Lubin">location_on</mat-icon><p></p> <img src="../assets/cities/lubin.jpeg">
         </div>
-        <div class="city" data-city="Głogów"> 
-          <mat-icon class="icon-Głogów">location_on</mat-icon><p></p> <img src="../assets/cities/głogów.jpeg">
+        <div class="city" data-city="Kłodzko"> 
+          <mat-icon class="icon-Kłodzko">location_on</mat-icon><p></p> <img src="../assets/cities/głogów.jpeg">
         </div>
         <div class="city" data-city="Zgorzelec"> 
           <mat-icon class="icon-Zgorzelec">location_on</mat-icon><p></p> <img src="../assets/cities/zgorzelec.jpg">
@@ -130,7 +137,6 @@
       <p type="Wiadomość:"><textarea name="message" ngModel class="message" placeholder="Twoja wiadomość..."></textarea></p>
       <button (click)="sendEmail(emailForm)">Wyślij wiadomość</button>
     </form>
-
 
   </div>
 </main>

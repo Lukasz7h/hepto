@@ -94,10 +94,10 @@ nav{
     left: 0;
     width: 100%;
     height: 85px;
+    z-index: 9;
 
     background-color: rgb(72, 154, 230);
     font-family: 'Belanosima', sans-serif;
-    z-index: 4;
 
     transition: background-color .4s;
 
@@ -219,8 +219,15 @@ nav{
     }
 }
 
+#general_data{
+    padding: 200px 100px 85px 170px;
+    height: 100%;
+
+}
+
 .view{
-    height: 100vh;
+
+    height: fit-content;
     padding: 250px 195px 195px 325px;
 
     box-sizing: border-box;
@@ -289,23 +296,27 @@ nav{
 
     #info{
         flex-basis: 65%;
-        height: 105%;
-        overflow-y: scroll;
-
-        font-family: 'Roboto', sans-serif;
-        line-height: 31px;
-
-        letter-spacing: 1px;
-        position: relative;
-
-        z-index: 2;
 
         h3{
-            font-family: 'Handjet', cursive;
+            font-family: "Handjet", cursive;
             font-size: 46px;
             margin-bottom: 25px;
         }
+        
+        div{
+            overflow-y: scroll;
+            height: 100%;
+        
+            font-family: 'Roboto', sans-serif;
+            line-height: 31px;
 
+            letter-spacing: 1px;
+            position: relative;
+
+            z-index: 2;
+        }
+
+        
         span{
             &:nth-of-type(1)
             {
@@ -332,7 +343,7 @@ nav{
 
 #work_area{
 
-    padding: 250px 195px;
+    padding: 150px 195px 0px 195px;
     position: relative;
 
     .city{
@@ -410,9 +421,9 @@ nav{
         }
     }
 
-    $coords: 32 69, 43 30, 23 46, 13 41, 32 10, 30 45;
+    $coords: 32 69, 43 30, 48 49, 23 46, 61 58, 32 10, 30 45;
 
-    @for $i from 1 through 6
+    @for $i from 1 through 7
     {
         .city:nth-of-type(#{$i})
         {
