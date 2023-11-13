@@ -259,7 +259,7 @@ export class AppComponent implements AfterViewInit, OnInit
           el.style.backgroundColor = "#303030";
         });
 
-        document.getElementById("general_data").querySelector("h3").style.color = "#fff";
+        document.getElementById("general_data").querySelector("h1").style.color = "#fff";
 
         info.style.color = "#fff";
         body.style.backgroundColor = 'rgb(48, 48, 48)';
@@ -279,7 +279,7 @@ export class AppComponent implements AfterViewInit, OnInit
         .forEach((el: any) => {
           el.style.backgroundColor = "#fff";
         });
-        document.getElementById("general_data").querySelector("h3").style.color = "#000";
+        document.getElementById("general_data").querySelector("h1").style.color = "#000";
 
         info.style.color = "black";
         body.style.backgroundColor = "#fff";
